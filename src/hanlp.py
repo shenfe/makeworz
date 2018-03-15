@@ -1,5 +1,5 @@
 import jpype
-from util import os_type
+from util import os_type, view_conllu
 
 hanlp_path = "./vendor/hanlp/"
 
@@ -99,6 +99,8 @@ if __name__ == '__main__':
     print(summary(document))
 
     # 句法分析
-    print(parse_dep("徐先生还具体帮助他确定了把画雄鹰、松鼠和麻雀作为主攻目标。"))
+    code = parse_dep("徐先生还具体帮助他确定了把画雄鹰、松鼠和麻雀作为主攻目标。")
+    print(code)
+    view_conllu(str(code))
 
     stop_jvm()
