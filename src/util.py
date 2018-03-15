@@ -1,5 +1,6 @@
 import platform
 
+
 def os_type():
     t = platform.system()
     print("platform is ", t)

@@ -1,5 +1,6 @@
 .DS_Store
 .vscode
+.idea
 .py3env
 node_modules
 __pycache__
