@@ -1,0 +1,8 @@
+.DS_Store
+.vscode
+.py3env
+node_modules
+__pycache__
+*.zip
+vendor/hanlp/data
+*-sources.jar
