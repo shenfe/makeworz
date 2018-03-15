@@ -2,17 +2,18 @@ import platform
 import time
 import codecs
 import os
+import subprocess
 import sys
 
 
 def open_file(filepath):
     filepath = os.path.normpath(filepath)
     if sys.platform.startswith('darwin'):
-        os.subprocess.call(('open', filepath))
+        subprocess.call(('open', filepath))
     elif os.name == 'nt':
         os.startfile(filepath)
     elif os.name == 'posix':
-        os.subprocess.call(('xdg-open', filepath))
+        subprocess.call(('xdg-open', filepath))
 
 
 def os_type():
