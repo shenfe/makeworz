@@ -5,6 +5,7 @@ import os
 import subprocess
 import sys
 from functools import reduce
+import json
 
 
 def open_file(filepath):
@@ -25,6 +26,15 @@ def os_type():
     return 1
 
 
+def read_json(filepath):
+    data = {}
+    filepath = os.path.normpath(filepath)
+    with codecs.open(filepath, 'r', encoding="utf-8") as f:
+        data = json.load(f)
+        f.close()
+    return data
+
+
 def view_conllu(code):
     if not isinstance(code, list):
         code = [code]
@@ -37,3 +47,8 @@ def view_conllu(code):
     fp.write(html)
     fp.close()
     open_file(filepath)
+
+
+if __name__ == '__main__':
+    data = read_json("data/source.json")
+    print(data[:1])
