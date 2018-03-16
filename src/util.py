@@ -4,6 +4,7 @@ import codecs
 import os
 import subprocess
 import sys
+from functools import reduce
 
 
 def open_file(filepath):
@@ -25,7 +26,9 @@ def os_type():
 
 
 def view_conllu(code):
-    code = str(code) + "\n"
+    if not isinstance(code, list):
+        code = [code]
+    code = reduce(lambda x, y: x + ('<code class="conllu-parse" tabs="yes"><pre>%s\n</pre></code>' % str(y)), code, "")
     fp = open("./vendor/conllu.js/template.html", "r")
     html = fp.read().replace("__code__", code)
     fp.close()

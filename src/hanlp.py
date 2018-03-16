@@ -22,7 +22,7 @@ def start_jvm():
 
 def segment(text):
     """
-    中文分词
+    分词
     """
     hanlp = jpype.JClass("com.hankcs.hanlp.HanLP")
     return hanlp.segment(text)
@@ -99,8 +99,6 @@ if __name__ == '__main__':
     print(summary(document))
 
     # 句法分析
-    code = parse_dep("徐先生还具体帮助他确定了把画雄鹰、松鼠和麻雀作为主攻目标。")
-    print(code)
-    view_conllu(str(code))
+    view_conllu(list(map(parse_dep, testCases + ["徐先生还具体帮助他确定了把画雄鹰、松鼠和麻雀作为主攻目标。"])))
 
     stop_jvm()
