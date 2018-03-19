@@ -14,7 +14,7 @@
 
 ```bash
 $ python -m venv .py3env                    # 创建venv环境
-$ source .py3env/bin/activate               # 进入venv环境（*nix）
+$ source .py3env/bin/activate               # 进入venv环境（unix/linux）
 $ source .py3env/Scripts/activate           # 进入venv环境（cygwin）
 $ .py3env\Scripts\activate                  # 进入venv环境（windows）
 (.py3env) $ pip install -r requirements.txt # 安装依赖
