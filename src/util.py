@@ -6,6 +6,7 @@ import subprocess
 import sys
 from functools import reduce
 import json
+import re
 
 
 def open_file(filepath):
@@ -49,6 +50,21 @@ def view_conllu(code):
     open_file(filepath)
 
 
+def split(text):
+    """
+    断句
+    """
+    groups = list(filter(lambda t: t != "", re.split("[。！？]+", text)))
+    if len(groups) == 1:
+        return re.split("[，；]+", text)
+    return list(map(split, groups))
+
+
 if __name__ == '__main__':
-    data = read_json("data/source.json")
-    print(data[:1])
+    # data = read_json("data/source.json")
+    # print(data[:1])
+
+    text = "我是南方人，但喜欢北方蓝天。你和我一样吗？好吧，原来不一样！"
+    print(split(text))
+    text1 = "我是南方人"
+    print(split(text1))
